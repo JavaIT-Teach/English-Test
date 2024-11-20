@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Grammar and Vocabulary Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border: 1px solid #d3d3d3;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>English Grammar and Vocabulary Test</h1>
+        <p>Answer all questions to test your skills!</p>
+    </header>
+    <div class="container">
+        <form id="testForm">
+            <div class="question">
+                <h2>1. Which word completes the sentence correctly?</h2>
+                <p>It ____ rain tomorrow.</p>
+                <label><input type="radio" name="q1" value="a"> Will</label>
+                <label><input type="radio" name="q1" value="b"> Might</label>
+                <label><input type="radio" name="q1" value="c"> Was</label>
+            </div>
+            <div class="question">
+                <h2>2. Which of the following forms a correct question using "will"?</h2>
+                <label><input type="radio" name="q2" value="a"> Will she go to the market?</label>
+                <label><input type="radio" name="q2" value="b"> Will go she to the market?</label>
+                <label><input type="radio" name="q2" value="c"> She will go to the market?</label>
+            </div>
+            <!-- Add more questions here -->
+            <button type="button" onclick="submitTest()">Submit Test</button>
+        </form>
+        <div id="result" class="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        function submitTest() {
+            const correctAnswers = {
+                q1: "a",
+                q2: "a"
+                // Add the rest of the answers here
+            };
+
+            const form = document.getElementById("testForm");
+            const userAnswers = {};
+            let score = 0;
+
+            Object.keys(correctAnswers).forEach(question => {
+                const selected = form[question];
+                if (selected) {
+                    userAnswers[question] = form[question].value;
+                    if (userAnswers[question] === correctAnswers[question]) {
+                        score++;
+                    }
+                }
+            });
+
+            const totalQuestions = Object.keys(correctAnswers).length;
+            const resultDiv = document.getElementById("result");
+            resultDiv.style.display = "block";
+            resultDiv.innerHTML = `You scored ${score} out of ${totalQuestions}.`;
+        }
+    </script>
+</body>
+</html>
