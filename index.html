@@ -17,6 +17,14 @@
             color: white;
             text-align: center;
             padding: 20px 0;
+            position: relative;
+        }
+        header img {
+            height: 80px;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
         }
         header h1 {
             margin: 0;
@@ -67,11 +75,13 @@
 </head>
 <body>
     <header>
+        <img src="https://raw.githubusercontent.com/JavaIT-Teach/English-Test/main/Untitled%20design%20(25).png" alt="Logo">
         <h1>A1 Test</h1>
         <p>Answer all questions to test your skills!</p>
     </header>
     <div class="container">
         <form id="testForm">
+            <!-- Questions -->
             <div class="question">
                 <h2>1. Which word completes the sentence correctly?</h2>
                 <p>It ____ rain tomorrow.</p>
@@ -116,7 +126,19 @@
                 <label><input type="radio" name="q7" value="b"> bigger</label>
                 <label><input type="radio" name="q7" value="c"> biggest</label>
             </div>
-            <!-- Remaining questions go here -->
+            <div class="question">
+                <h2>8. Which word completes the sentence with a superlative?</h2>
+                <p>This is the ____ cake I have ever eaten.</p>
+                <label><input type="radio" name="q8" value="a"> good</label>
+                <label><input type="radio" name="q8" value="b"> better</label>
+                <label><input type="radio" name="q8" value="c"> best</label>
+            </div>
+            <div class="question">
+                <h2>22. What is the meaning of the word "obsolete"?</h2>
+                <label><input type="radio" name="q22" value="a"> New and improved</label>
+                <label><input type="radio" name="q22" value="b"> Outdated</label>
+                <label><input type="radio" name="q22" value="c"> Commonplace</label>
+            </div>
             <button type="button" onclick="submitTest()">Submit Test</button>
         </form>
         <div id="result" class="result" style="display: none;"></div>
@@ -126,7 +148,8 @@
         function submitTest() {
             const correctAnswers = {
                 q1: "a", q2: "a", q3: "b", q4: "b", q5: "b",
-                q6: "a", q7: "b", /* Add remaining correct answers here */
+                q6: "a", q7: "b", q8: "c", q9: "a", q10: "b",
+                q22: "b"
             };
 
             const form = document.getElementById("testForm");
